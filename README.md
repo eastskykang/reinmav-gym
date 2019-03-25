@@ -91,13 +91,14 @@ $ python test_quadrotor3d.py
 
 ### Prerequisites
 
-- [mujoco 1.5](http://www.mujoco.org/)
+- [mujoco 2.0 (**recommended**) or 1.5](http://www.mujoco.org/)
 - [mujoco-py](https://github.com/openai/mujoco-py)
 
 ### Steps
 
-1. download mjpro150 from [MuJoCo website](https://www.roboti.us/index.html)
-2. put mjpro150 directory into ~/.mujoco
+1. download mujoco200 (or mjpro150) from [MuJoCo website](https://www.roboti.us/index.html)
+2. put mujoco200 (or mjpro150) directory into ~/.mujoco 
+    - should be ~/.mujoco/mujoco200 or ~/.mujoco/mjpro150
 3. put mjkey.txt into ~/.mujoco
 4. install apt dependencies
     - for example on Ubuntu 16.04:
@@ -105,10 +106,14 @@ $ python test_quadrotor3d.py
     $ apt-get install -y python-pyglet python3-opengl zlib1g-dev libjpeg-dev patchelf \
         cmake swig libboost-all-dev libsdl2-dev libosmesa6-dev xvfb ffmpeg
     ```
+    - if you get ```fatal error: GL/osmesa.h: No such file or directory```, install libosmesa6-dev by
+    ```sh
+    $ apt-get install libosmesa6-dev
+    ```
     - see gym [README - Installing everything section](https://github.com/openai/gym#installing-everything) for more details.
 5. export LD_LIBRARY_PATH
 ```sh
-$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mjpro150/bin
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.mujoco/mujoco200/bin
 $ # check your nvidia driver version 
 $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia-<YOUR VERSION> 
 ```
