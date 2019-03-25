@@ -41,10 +41,34 @@ class MujocoQuadQuaternionEnv(MujocoQuadEnv):
     def __init__(self, xml_name="quadrotor_quat.xml"):
         super(MujocoQuadQuaternionEnv, self).__init__(xml_name=xml_name)
 
+        # reward weights
+        self.position_error_penalty_weight = -10.
+        self.velocity_error_penalty_weight = -0.1
+        self.action_penalty = -0.1
+        self.alive_bonus = 10.
+
+        # goal position 
+        self.target_position = np.array([0., 0., 1.])
+
+        # terminate condition
+        self.terminate_height = np.zeros(2)     # low, high
+        self.terminate_height[0] = -1.0
+        self.terminate_height[1] = 2.0
+
     def step(self, a):
-        reward = 0
-        self.do_simulation(a, self.frame_skip)
+        self.do_simulation(self.clip_action(a), self.frame_skip)
         ob = self._get_obs()
-        notdone = np.isfinite(ob).all()
+
+        reward = + np.linalg.norm(ob[0:3] - self.target_position) * self.position_error_penalty_weight \
+                 + np.linalg.norm(ob[7:] - np.zeros(6)) * self.velocity_error_penalty_weight \
+                 + np.linalg.norm(a) * self.action_penalty \
+                 + self.alive_bonus
+
+        notdone = np.isfinite(ob).all() \
+                  and ob[2] > self.terminate_height[0] \
+                  and ob[2] < self.terminate_height[1] \
+                  and abs(ob[0]) < 2.0 \        
+                  and abs(ob[1]) < 2.0
+
         done = not notdone
         return ob, reward, done, {}

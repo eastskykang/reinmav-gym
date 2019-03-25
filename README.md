@@ -122,8 +122,6 @@ $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia-<YOUR VERSION>
 $ pip3 install 'gym[all]'
 ```
 
-Note. mujoco200 (MuJoCo 2.0) is not supported yet.
-
 
 # Using the Environment
 The environment can be used as anyother gym environments. This can be done by doing the following in your script
