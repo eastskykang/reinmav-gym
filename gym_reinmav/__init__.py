@@ -27,11 +27,6 @@ register(
 
 register(
     id='MujocoQuadForce-v0',
-    entry_point='gym_reinmav.envs.mujoco:MujocoQuadEnv',
-)
-
-register(
-    id='MujocoQuadForce-v1',
     entry_point='gym_reinmav.envs.mujoco:MujocoQuadHoveringEnv',
 )
 

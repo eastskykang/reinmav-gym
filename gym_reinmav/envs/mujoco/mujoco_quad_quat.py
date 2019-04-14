@@ -67,7 +67,7 @@ class MujocoQuadQuaternionEnv(MujocoQuadEnv):
         notdone = np.isfinite(ob).all() \
                   and ob[2] > self.terminate_height[0] \
                   and ob[2] < self.terminate_height[1] \
-                  and abs(ob[0]) < 2.0 \        
+                  and abs(ob[0]) < 2.0 \
                   and abs(ob[1]) < 2.0
 
         done = not notdone
