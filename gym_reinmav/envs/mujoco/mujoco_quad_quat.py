@@ -38,8 +38,8 @@ from gym_reinmav.envs.mujoco import MujocoQuadEnv
 
 
 class MujocoQuadQuaternionEnv(MujocoQuadEnv):
-    def __init__(self, xml_name="quadrotor_quat.xml"):
-        super(MujocoQuadQuaternionEnv, self).__init__(xml_name=xml_name)
+    def __init__(self):
+        super(MujocoQuadQuaternionEnv, self).__init__(xml_name="quadrotor_quat.xml")
 
         # reward weights
         self.position_error_penalty_weight = -10.

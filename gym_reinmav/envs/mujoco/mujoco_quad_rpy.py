@@ -39,7 +39,7 @@ from gym_reinmav.envs.mujoco import MujocoQuadEnv
 
 class MujocoQuadHoveringEnv(MujocoQuadEnv):
     def __init__(self):
-        super(MujocoQuadHoveringEnv, self).__init__(xml_name="quadrotor_hovering.xml")
+        super(MujocoQuadHoveringEnv, self).__init__(xml_name="quadrotor_rpy.xml")
 
     def step(self, a):
         self.do_simulation(self.clip_action(a), self.frame_skip)
