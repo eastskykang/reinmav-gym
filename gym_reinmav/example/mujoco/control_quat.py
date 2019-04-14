@@ -33,10 +33,10 @@
 # *************************************************************************
 import gym
 import numpy as np
+import gym_reinmav
+
 from numpy import linalg
 from pyquaternion import Quaternion
-
-from gym_reinmav.envs.mujoco import MujocoQuadQuaternionEnv
 
 
 class Quadrotor:

@@ -39,8 +39,6 @@ from gym_reinmav.envs.mujoco import MujocoQuadEnv
 
 class MujocoQuadQuaternionEnv(MujocoQuadEnv):
     def __init__(self):
-        super(MujocoQuadQuaternionEnv, self).__init__(xml_name="quadrotor_quat.xml")
-
         # reward weights
         self.position_error_penalty_weight = -10.
         self.velocity_error_penalty_weight = -0.1
@@ -54,6 +52,8 @@ class MujocoQuadQuaternionEnv(MujocoQuadEnv):
         self.terminate_height = np.zeros(2)     # low, high
         self.terminate_height[0] = -1.0
         self.terminate_height[1] = 2.0
+        
+        super(MujocoQuadQuaternionEnv, self).__init__(xml_name="quadrotor_quat.xml")
 
     def step(self, a):
         self.do_simulation(self.clip_action(a), self.frame_skip)

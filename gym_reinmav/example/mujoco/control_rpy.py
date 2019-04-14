@@ -33,8 +33,8 @@
 # *************************************************************************
 import gym
 import numpy as np
+import gym_reinmav
 
-from gym_reinmav.envs.mujoco import MujocoQuadEnv
 from gym_reinmav.controller import RpyController
 
 
