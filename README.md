@@ -99,6 +99,7 @@ $ python test_quadrotor3d.py
 1. download mujoco200 (or mjpro150) from [MuJoCo website](https://www.roboti.us/index.html)
 2. put mujoco200 (or mjpro150) directory into ~/.mujoco 
     - should be ~/.mujoco/mujoco200 or ~/.mujoco/mjpro150
+    - note that you should change the directory name mujoco200_linux to mujoco200
 3. put mjkey.txt into ~/.mujoco
 4. install apt dependencies
     - for example on Ubuntu 16.04:
@@ -121,6 +122,8 @@ $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia-<YOUR VERSION>
 ```sh
 $ pip3 install 'gym[all]'
 ```
+
+Note that mujuco 150 only works with mujoco-py 1.5XX versions.
 
 
 # Using the Environment
